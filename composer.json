@@ -1,0 +1,8 @@
+{
+  "name": "christhesoul/formica",
+  "autoload": {
+    "psr-0" : {
+      "Christhesoul\Formica" : "src"
+    }
+  }
+}
