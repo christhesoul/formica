@@ -13,8 +13,24 @@ class Mail {
   private $headers;
   private $success;
   
-  function __construct($mandrill_api_key){
+  function __construct($mandrill_api_key, $email_options = array()){
     $this->mandrill_api_key = $mandrill_api_key;
+    $this->set_email_options($email_options);
+  }
+  
+  public function set_email_options($email_options){
+    $defaults = array(
+      'from_name' => 'Your website',
+      'from_email' => 'robot@wearecondiment.com',
+      'to_name' => 'You',
+      'subject' => 'Website form submission',
+      'message' => 'Contact form message',
+      'success' => false
+    );
+    $email_options = array_merge($defaults, $email_options);
+    foreach($email_options as $k => $option){
+      $this->$k = $option;
+    }
   }
   
   public function set_from_name($name){
