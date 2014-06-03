@@ -82,7 +82,7 @@ class Mail {
     try {
       $mandrill = new \Mandrill($this->mandrill_api_key);
       $result = $mandrill->messages->send($this->mandrill_message_array(), false);
-      if($result == 'sent'){
+      if($result[0]['status'] == 'sent'){
         $this->success = true;
       }
       return $result;
