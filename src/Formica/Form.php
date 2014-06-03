@@ -1,7 +1,7 @@
 <?php
 namespace Formica;
 
-class Formica {
+class Form {
   
   public $inputs;
   

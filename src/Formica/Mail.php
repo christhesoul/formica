@@ -1,5 +1,7 @@
 <?php
-class FormicaMail {
+namespace Formica;
+
+class Mail {
   
   private $to;
   private $subject;

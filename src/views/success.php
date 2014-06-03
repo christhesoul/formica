@@ -1,5 +1,5 @@
 <?php
-$email = new FormicaMail();
+$email = new \Formica\Mail();
 $email->set_to();
 $email->set_subject();
 $email->set_message($this->data_for_email());

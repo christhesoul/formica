@@ -1,5 +1,7 @@
 <?php
-class FormicaInput {
+namespace Formica;
+
+class Input {
   
   public $name;
   public $label;
