@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form" action="<?php echo home_url('/register/'); ?>" method="post">
+<form class="form-horizontal" role="form" action="<?= $this->action ?>" method="<?= $this->method ?>">
   
   <?php
   foreach($this->inputs as $input){
