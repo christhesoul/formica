@@ -5,8 +5,20 @@ class Form {
   
   public $inputs;
   
-  function __construct($inputs){
+  function __construct($inputs, $options = array()){
     $this->inputs = $inputs;
+    $this->process_options($options);
+  }
+  
+  public function process_options($options){
+    $defaults = array(
+      'action' => get_permalink(),
+      'method' => 'post'
+    );
+    $options = array_merge($defauts, $options);
+    foreach($options as $k => $option){
+      $this->$key = $option;
+    }
   }
   
   public function render_all(){
