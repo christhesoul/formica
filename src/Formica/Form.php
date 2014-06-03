@@ -31,8 +31,8 @@ class Form {
     include realpath(__DIR__ . '/../views/form.php');
   }
   
-  public function render_success(){
-    include realpath(__DIR__ . '/../views/success.php');
+  public function render_success($path_to_file){
+    include $path_to_file;
   }
   
   public function process($post){
