@@ -6,7 +6,7 @@ Formica is a PHP thing for submitting forms and capturing data. It is my first f
 Getting started
 ---------------
 
-Add the following to your `composer.json` and `$ composer update` as per usual.
+Add the following to your `composer.json` and run `$ composer update` as per usual.
 
 ```
 "repositories": [
@@ -18,6 +18,7 @@ Add the following to your `composer.json` and `$ composer update` as per usual.
 "require": {
   "christhesoul/formica": "dev-master"
 }
+```
 
 API
 ---
