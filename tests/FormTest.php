@@ -1,7 +1,7 @@
 <?php
 class FormTest extends PHPUnit_Framework_TestCase
 {
-    public function testDefaultOptions()
+    public function test_form_has_correct_default_options()
     {
         // Arrange
         $form = new \Formica\Form(
@@ -9,8 +9,8 @@ class FormTest extends PHPUnit_Framework_TestCase
             new \Formica\Input('my_email','Email')
           )
         );
-
         // Assert
         $this->assertEquals($form->method, 'post');
+        $this->assertEquals($form->action, '/');
     }
 }

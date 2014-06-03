@@ -4,6 +4,8 @@ namespace Formica;
 class Form {
   
   public $inputs;
+  public $action;
+  public $method;
   
   function __construct($inputs, $options = array()){
     $this->inputs = $inputs;
@@ -12,12 +14,12 @@ class Form {
   
   public function process_options($options){
     $defaults = array(
-      'action' => get_permalink(),
+      'action' => '/',
       'method' => 'post'
     );
-    $options = array_merge($defauts, $options);
+    $options = array_merge($defaults, $options);
     foreach($options as $k => $option){
-      $this->$key = $option;
+      $this->$k = $option;
     }
   }
   
