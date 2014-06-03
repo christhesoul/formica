@@ -2,7 +2,7 @@
   "name": "christhesoul/formica",
   "autoload": {
     "psr-0" : {
-      "Christhesoul" : "src/"
+      "Formica" : "src/"
     }
   },
   "require-dev": {
