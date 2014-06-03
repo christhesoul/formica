@@ -34,5 +34,18 @@ class FormTest extends PHPUnit_Framework_TestCase
     $this->assertEquals($form_without_defaults->method, 'get');
   }
   
+  public function test_process()
+  {
+    // Arrange
+    $input = $this->getMockBuilder('\Formica\Input',array('process'))->disableOriginalConstructor()->getMock();
+    $form = new \Formica\Form(array($input));
+    
+    // Set Expecations
+    $input->expects($this->once())->method('process')->with($post);
+
+    // Try to meet expectations
+    $form->process($post);
+  }
+  
   
 }
