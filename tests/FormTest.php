@@ -47,5 +47,18 @@ class FormTest extends PHPUnit_Framework_TestCase
     $form->process($post);
   }
   
+  public function test_has_errors()
+  {
+    // Create a stub for the Input class.
+    $input = $this->getMockBuilder('\Formica\Input',array('process'))->disableOriginalConstructor()->getMock();
+    $form = new \Formica\Form(array($input));
+
+    // Configure the input stub.
+    $input->expects($this->any())->method('has_errors')->will($this->returnValue(true));
+
+    // Assert
+    $this->assertTrue($form->has_errors());
+  }
+  
   
 }
