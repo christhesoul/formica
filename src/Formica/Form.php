@@ -6,6 +6,7 @@ class Form {
   public $inputs;
   public $action;
   public $method;
+  private $success_path;
   
   function __construct($inputs, $options = array()){
     $this->inputs = $inputs;
@@ -31,8 +32,8 @@ class Form {
     include realpath(__DIR__ . '/../views/form.php');
   }
   
-  public function render_success($path_to_file){
-    include $path_to_file;
+  public function render_success(){
+    include $this->success_path;
   }
   
   public function process($post){
