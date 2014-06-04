@@ -38,11 +38,7 @@ class Input {
     $output = preg_replace($search, '', $input);
     return $this->posted_value = $output;
   }
-  
-  public function normalized_name(){
-    return ucwords(str_replace('trade_','',$this->name));
-  }
-  
+
   public function nice_posted_value(){
     if($this->input_type == 'checkbox'){
       return $this->posted_value ? 'yes' : 'no';
@@ -53,7 +49,7 @@ class Input {
   
   public function check_for_errors(){
     if($this->posted_value == ''){
-      $this->errors[] = $this->normalized_name() . ' cannot be blank';
+      $this->errors[] = 'Cannot be blank';
     }
   }
   
