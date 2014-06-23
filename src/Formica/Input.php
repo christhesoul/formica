@@ -7,13 +7,26 @@ class Input {
   public $label;
   public $input_type;
   public $posted_value;
+  public $required;
+  public $select_options;
   public $errors;
   
-  function __construct($name, $label, $input_type = 'text', $required = true){
-    $this->name = (string) $name;
-    $this->label = (string) $label;
-    $this->input_type = (string) $input_type;
-    $this->required = (boolean) $required;
+  function __construct($options = array()){
+    $this->process_options($options);    
+  }
+  
+  public function process_options($options){
+    $defaults = array(
+      'name' => '',
+      'label' => '',
+      'input_type' => 'text',
+      'required' => true,
+      'select_options' => array()
+    );
+    $options = array_merge($defaults, $options);
+    foreach($options as $k => $option){
+      $this->$k = $option;
+    }
   }
   
   public function render_input(){
@@ -59,6 +72,12 @@ class Input {
     } else {
       return true;
     }
+  }
+  
+  public function is_selected_option($value){
+    if($this->posted_value == $value){
+      return 'selected';
+    }    
   }
   
 }

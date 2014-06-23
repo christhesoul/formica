@@ -5,7 +5,12 @@ class FormTest extends PHPUnit_Framework_TestCase
     // Arrange
     $form = new \Formica\Form(
       array(
-        new \Formica\Input('my_email','Email')
+        new \Formica\Input(
+          array(
+            'name' => 'my_email',
+            'label' => 'Email'
+          )
+        )
       )
     );
     // Assert
@@ -17,12 +22,22 @@ class FormTest extends PHPUnit_Framework_TestCase
     // Arrange
     $form = new \Formica\Form(
       array(
-        new \Formica\Input('my_email','Email')
+        new \Formica\Input(
+          array(
+            'name' => 'my_email',
+            'label' => 'Email'
+          )
+        )
       )
     );
     $form_without_defaults = new \Formica\Form(
       array(
-        new \Formica\Input('my_email','Email')
+        new \Formica\Input(
+          array(
+            'name' => 'my_email',
+            'label' => 'Email'
+          )
+        )
       ),
       array(
         'method' => 'get'
