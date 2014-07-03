@@ -10,6 +10,7 @@ class Input {
   public $required;
   public $select_options;
   public $errors;
+  public $hint;
   
   function __construct($options = array()){
     $this->process_options($options);    
@@ -27,6 +28,10 @@ class Input {
     foreach($options as $k => $option){
       $this->$k = $option;
     }
+  }
+  
+  public function set_hint($hint){
+    $this->hint = $hint;
   }
   
   public function render_input(){

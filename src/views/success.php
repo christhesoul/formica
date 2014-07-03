@@ -1,9 +1,5 @@
 <?php
-$email = new \Formica\Mail();
-$email->set_to();
-$email->set_subject();
-$email->set_message($this->data_for_email());
-$email->send_it();
+$email = new \Formica\FakeMail();
 if($email->sent_successfully()):
 ?>
   <div class="alert alert-success">

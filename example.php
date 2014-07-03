@@ -11,6 +11,7 @@
     <h1>This is my form</h1>
     <hr>
     <?php
+    require_once('vendor/autoload.php');
     require_once('src/autoload.php');
     $inputs = array(
       new \Formica\Input(
@@ -48,7 +49,11 @@
       )
     );
 
-    $form = new \Formica\Form($inputs,array('action' => '/formica/example.php'));
+    $form = new \Formica\Form($inputs,array(
+      'action' => '/formica/example.php',
+      'success_path' => 'src/views/success.php'
+    ));
+    $form->set_human_validation_field('title', 4, 'Please tell us the fourth character of your title');
     $form->render_all();
     ?>
   </div>
