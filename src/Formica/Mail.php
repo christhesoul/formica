@@ -61,19 +61,26 @@ class Mail {
     $this->headers = $headers;
   }
   
+  function to_field_array(){
+    $recipients = explode(',', $this->to_email);
+    $to_array = array();
+    foreach($recipients as $recipient){
+      $to_array[] = array(
+        'type' => 'to',
+        'name' => $this->to_name,
+        'email' => $recipient
+      );
+    }
+    return $to_array;
+  }
+  
   function mandrill_message_array(){
     $message = array(
       'from_name' => $this->from_name,
       'from_email' => $this->from_email,
       'subject' => $this->subject,
       'text' => $this->message,
-      'to' => array(
-        array(
-          'type' => 'to',
-          'name' => $this->to_name,
-          'email' => $this->to_email
-        )
-      )
+      'to' => $this->to_field_array()
     );
     return $message;
   }
